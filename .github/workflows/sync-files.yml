@@ -22,4 +22,5 @@ jobs:
           PR_LABELS: |
             file-sync
             automerge
+          PR_BODY: This is your custom PR Body
           
