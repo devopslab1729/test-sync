@@ -1,0 +1,17 @@
+group:
+  # first group
+  - files:
+      - source: test.txt
+        dest: test.txt
+    repos: |
+      devopslab1729/github-workflows
+      devopslab1729/test
+
+  # second group
+  # first group
+  - files:
+      - source: test.txt
+        dest: test1.txt
+    repos: |
+      devopslab1729/github-workflows
+      devopslab1729/test
