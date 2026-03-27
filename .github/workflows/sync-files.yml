@@ -3,7 +3,11 @@ on:
   push:
     branches:
       - main
-      - master
+  pull_request:
+    types:
+        - opened
+        - synchronize
+        - edited
   workflow_dispatch:
 jobs:
   sync:
