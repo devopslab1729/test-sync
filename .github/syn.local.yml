@@ -1,0 +1,3 @@
+devopslab1729/test-sync:
+  - source: test2.txt
+    dest: test3.txt
