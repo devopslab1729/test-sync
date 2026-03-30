@@ -10,7 +10,7 @@ on:
         - edited
   workflow_dispatch:
 jobs:
-  sync:
+  sync-local:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
