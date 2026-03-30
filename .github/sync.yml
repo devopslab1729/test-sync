@@ -19,7 +19,3 @@ group:
     repos: |
       devopslab1729/github-workflows
       devopslab1729/test
-  # third group
-  - files:
-      - source: test2.txt
-        dest: test3.txt
