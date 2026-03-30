@@ -1,0 +1,5 @@
+group:
+  # first group
+  - files:
+      - source: test2.txt
+        dest: test3.txt
