@@ -15,15 +15,23 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@main
+        
+      - name: Generate GitHub App Token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+  
       - name: Run GitHub File Sync
         uses: BetaHuhn/repo-file-sync-action@v1
         with:
-          GH_PAT: ${{ secrets.GH_OAUTH }}
+          GH_PAT: ${{ steps.app-token.outputs.token }}
           PR_LABELS: |
             file-sync
             automerge
           PR_BODY: This is your custom PR Body
           COMMIT_PREFIX: "chore: sync files"
-          SKIP_PR: true
-          SYNC_CONFIG: .github/sync.yml
+          SKIP_PR: false
+
           
