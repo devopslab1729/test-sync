@@ -1,0 +1,28 @@
+name: Use GitHub App Token
+
+on:
+  workflow_dispatch:
+
+jobs:
+  app-auth:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Generate GitHub App Token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          owner: basivireddy1212
+          repositories: test-sync
+
+      - name: Checkout using App Token
+        uses: actions/checkout@v4
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+
+      - name: Test API
+        run: |
+          curl -H "Authorization: Bearer ${{ steps.app-token.outputs.token }}" \
+          https://api.github.com/repos/basivireddy1212/test-sync
