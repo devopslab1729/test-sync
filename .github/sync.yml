@@ -1,6 +1,6 @@
-basivireddy1212/test-sync:
-  - source: test2.txt
-    dest: test3.txt
+#basivireddy1212/test-sync:
+#  - source: test2.txt
+#    dest: test3.txt
 #
 group:
   # first group
@@ -8,14 +8,14 @@ group:
       - source: test.txt
         dest: test.txt
     repos: |
-      basivireddy1212/github-workflows
+#      basivireddy1212/github-workflows
       basivireddy1212/test
 
   # second group
   # first group
-  - files:
-      - source: test1.txt
-        dest: test1.txt
-    repos: |
-      basivireddy1212/github-workflows
-      basivireddy1212/test
+#  - files:
+#      - source: test1.txt
+#        dest: test1.txt
+#    repos: |
+#      basivireddy1212/github-workflows
+#      basivireddy1212/test
