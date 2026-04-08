@@ -1,6 +1,14 @@
 name: Use GitHub App Token
 
 on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types:
+        - opened
+        - synchronize
+        - edited
   workflow_dispatch:
 
 jobs:
@@ -14,8 +22,7 @@ jobs:
         with:
           app-id: ${{ vars.APP_ID }}
           private-key: ${{ secrets.APP_PRIVATE_KEY }}
-          owner: basivireddy1212
-          repositories: test-sync
+
 
       - name: Checkout using App Token
         uses: actions/checkout@v4
