@@ -34,12 +34,41 @@ jobs:
           curl -H "Authorization: Bearer ${{ steps.app-token.outputs.token }}" \
           https://api.github.com/repos/basivireddy1212/test-sync
 
+      # 🔑 Import GPG key
+      - name: Import GPG key
+        run: |
+          echo "${{ secrets.GPG_PRIVATE_KEY }}" | gpg --batch --import
+
+      # 🔧 Configure Git for signing
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-app[bot]"
+          git config --global user.email "github-app[bot]@users.noreply.github.com"
+          
+          git config --global user.signingkey ${{ secrets.GPG_KEY_ID }}
+          git config --global commit.gpgsign true
+
+      # 🔓 Allow GPG in CI
+      - name: Configure GPG TTY
+        run: |
+          export GPG_TTY=$(tty)
+
+      # ✍️ Create signed commit
+      - name: Commit & Push (signed)
+        run: |
+          echo "Signed commit test $(date)" >> signed.txt
+          git add signed.txt
+          
+          git commit -S -m "Signed commit via GitHub App"
+          
+          git push https://x-access-token:${{ steps.app-token.outputs.token }}@github.com/basivireddy1212/test-sync.git
+          
       - name: Push changes
         run: |
           git config user.name "github-app[bot]"
           git config user.email "github-app[bot]@users.noreply.github.com"
           
-          echo "test" >> file.txt
+          echo "test $(date +s%)" >> file.txt
           git add .
           git commit -m "Update via GitHub App"
           
