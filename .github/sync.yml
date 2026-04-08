@@ -1,4 +1,4 @@
-devopslab1729/test-sync:
+basivireddy1212/test-sync:
   - source: test2.txt
     dest: test3.txt
 #
@@ -8,8 +8,8 @@ group:
       - source: test.txt
         dest: test.txt
     repos: |
-      devopslab1729/github-workflows
-      devopslab1729/test
+      basivireddy1212/github-workflows
+      basivireddy1212/test
 
   # second group
   # first group
@@ -17,5 +17,5 @@ group:
       - source: test1.txt
         dest: test1.txt
     repos: |
-      devopslab1729/github-workflows
-      devopslab1729/test
+      basivireddy1212/github-workflows
+      basivireddy1212/test
