@@ -22,6 +22,8 @@ jobs:
         with:
           app-id: ${{ vars.APP_ID }}
           private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          owner: basivireddy1212
+          repositories: test-sync,test
       - name: run
         run: |
           ls -la
