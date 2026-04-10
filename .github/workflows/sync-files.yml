@@ -35,6 +35,7 @@ jobs:
           #git add date.txt
           #git commit -m "test"
           #git push
+          echo "test123 $(date +s%)" > test123.txt
           
       - name: Run GitHub File Sync
         uses: BetaHuhn/repo-file-sync-action@v1
